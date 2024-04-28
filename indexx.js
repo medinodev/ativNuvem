@@ -1,25 +1,33 @@
 const express = require("express");
 const app = express();
 
+//primeira porta
+
 app.get("/", function(req,res){
-    res.send("Sejam bem-vindos ao meu site!")
+    res.send("Bem vindo ao meu site!");
 })
 
-app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1> <br>Produto 1")
-   
-})
 
-app.get("/consulta/:parametro", function(req,res){
-    res.send("Retorno consulta: " + req.params.parametro);
-})
+//segunda porta
+
+app.get("/consulta/", function(req,res){
+    var cpf = req.query["cpf"];
+        if (cpf){
+            res.send("Retorno consulta: CPF - " + cpf);
+        }else{
+            res.send("CPF nao fornecido");
+        }
+    }
+)
+    
+// terceira porta    
 
 app.get("/cadastro/:nome?", function(req,res){
     var nome = req.params.nome;
     if (nome){
         res.send("<h1>Produto " + nome + " criado!</h1>");   
     }else{
-        res.send("Produto nao cadastrado.........")
+        res.send("Produto nao cadastrado...");
     }
 })
 
