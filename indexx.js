@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req,res){
-    res.send("Bem vindo ao meu site!")
+    res.send("Sejam bem-vindos ao meu site!")
 })
 
 app.get("/produtos", function(req,res){
